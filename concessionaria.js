@@ -23,3 +23,38 @@ function removerCarro() {
         console.log("Carro não encontrado.");
     }
 }
+
+function listarCarros() {
+    if (carros.length === 0) {
+        console.log("Nenhum carro cadastrado.");
+    } else {
+        console.log("\nLista de Carros:");
+        carros.forEach(carro => {
+            console.log(`Marca: ${carro.marca}, Modelo: ${carro.modelo}, Preço: ${carro.preco}, Ano: ${carro.ano}`);
+        });
+    }
+}
+
+function atualizarCarro() {
+    const modelo = prompt("Digite o modelo do carro a ser atualizado: ");
+    const index = carros.findIndex(carro => carro.modelo === modelo);
+    if (index !== -1) {
+        const { marca, preco, ano } = carros[index];
+        console.log("Deixe em branco para manter o valor atual.");
+        const novaMarca = prompt(`Nova marca (${marca}): `) || marca;
+        const novoPreco = parseFloat(prompt(`Novo preço (${preco}): `)) || preco;
+        const novoAno = parseInt(prompt(`Novo ano (${ano}): `)) || ano;
+
+        carros[index] = { marca: novaMarca, modelo, preco: novoPreco, ano: novoAno };
+        console.log("Carro atualizado com sucesso.");
+    } else {
+        console.log("Carro não encontrado.");
+    }
+}
+
+module.exports = {
+    adicionarCarro,
+    removerCarro,
+    listarCarros,
+    atualizarCarro
+};
