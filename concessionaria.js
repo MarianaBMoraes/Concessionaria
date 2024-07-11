@@ -1,3 +1,5 @@
+const prompt = require ('prompt-sync')();
+
 let carros = [];
 
 const marcas = ["Toyota", "Honda", "Ford", "Chevrolet"];

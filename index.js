@@ -10,3 +10,31 @@ function exibirMenu() {
     console.log("5. Sair");
     return prompt("Escolha uma opção: ");
 }
+
+function main() {
+    let escolha;
+    do {
+        escolha = exibirMenu();
+        switch (escolha) {
+            case '1':
+                adicionarCarro();
+                break;
+            case '2':
+                removerCarro();
+                break;
+            case '3':
+                listarCarros();
+                break;
+            case '4':
+                atualizarCarro();
+                break;
+            case '5':
+                console.log("Saindo...");
+                break;
+            default:
+                console.log("Opção inválida.");
+        }
+    } while (escolha !== '5');
+}
+
+main();
